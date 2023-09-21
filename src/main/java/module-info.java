@@ -11,6 +11,8 @@ module com.example.bj {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.bj to javafx.fxml;
-    exports com.example.bj;
+    opens com.bj to javafx.fxml;
+    exports com.bj;
+    exports com.bj.controller;
+    opens com.bj.controller to javafx.fxml;
 }
