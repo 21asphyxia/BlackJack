@@ -19,12 +19,16 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load(), 840, 440);
 
         GameService gameService = new GameService();
-        int[] drawnCard = gameService.startGame();
-        ImageView imageView = gameService.getImageScene(drawnCard);
-        imageView.setTranslateX(40);
-        BorderPane root = fxmlLoader.getRoot();
-        StackPane stackPane = (StackPane) root.getTop();
-        stackPane.getChildren().add(imageView);
-        MainApplication.stage.setScene(scene);
+        int[][] drawnCards = gameService.startGame();
+//        BorderPane root = fxmlLoader.getRoot();
+//        StackPane stackPane = (StackPane) root.getTop();
+//        int i = 60;
+//        for (int[] drawnCard : drawnCards) {
+//            ImageView imageView = gameService.getImageScene(drawnCard);
+//            imageView.setTranslateX(i);
+//            stackPane.getChildren().add(imageView);
+//            i += 30;
+//        }
+//        MainApplication.stage.setScene(scene);
     }
 }

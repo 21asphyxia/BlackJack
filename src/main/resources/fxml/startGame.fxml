@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane id="game" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bj.controller.MainController">
+<BorderPane id="game" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bj.controller.MainController">
     <bottom>
 
     </bottom>
-   <top>
-      <StackPane BorderPane.alignment="CENTER">
-         <children>
-              <ImageView fitWidth="100" preserveRatio="true" translateX="0">
-                  <Image url="@../images/cards/1-2.png" />
-              </ImageView>
-            <ImageView fitWidth="100" preserveRatio="true" translateX="20">
-               <image>
-                  <Image url="@../images/cards/1-2.png" />
-               </image>
+    <top>
+        <StackPane BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
+            <ImageView fitWidth="100" preserveRatio="true">
+                <Image url="@../images/cards/1-2.png"/>
+                <effect>
+                    <DropShadow/>
+                </effect>
             </ImageView>
-         </children>
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin>
-      </StackPane>
-   </top>
+            <ImageView fitWidth="100" preserveRatio="true" translateX="30">
+                <effect>
+                    <DropShadow/>
+                </effect>
+                <Image url="@../images/cards/1-2.png"/>
+            </ImageView>
+        </StackPane>
+    </top>
 </BorderPane>
