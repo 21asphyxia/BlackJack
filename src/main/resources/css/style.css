@@ -1,3 +1,7 @@
+@font-face {
+    src: url('../fonts/GoldenbeachpersonaluseBdit-jEgDM.otf');
+}
+
 #main {
     -fx-background-image: url('../images/main-background.jpg');
     -fx-background-repeat: no-repeat;
@@ -18,4 +22,6 @@
             dropshadow(gaussian, #c6bb9f, 0, 1, 1, 1),
             dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 5, 10, 1),
             dropshadow(gaussian, rgba(0, 0, 0, 0.4), -5, -5, 10, 1);
+    -fx-font-family: 'Golden Beach Personal Use';
+    -fx-font-size: 40;
 }

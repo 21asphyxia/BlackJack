@@ -12,11 +12,12 @@ import java.io.IOException;
 public class MainController {
     @FXML
     protected void onStartButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/startGame.fxml"));
-         Scene scene = new Scene(fxmlLoader.load(), 612, 408);
-         MainApplication.stage.setScene(scene);
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/startGame.fxml"));
+//         Scene scene = new Scene(fxmlLoader.load(), 612, 408);
 
         GameService gameService = new GameService();
-        gameService.startGame();
+        int[] drawnCard = gameService.startGame();
+        Scene scene = gameService.getImageScene(drawnCard);
+        MainApplication.stage.setScene(scene);
     }
 }
