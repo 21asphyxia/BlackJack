@@ -2,13 +2,19 @@
     src: url('../fonts/GoldenbeachpersonaluseBdit-jEgDM.otf');
 }
 
-#main {
-    -fx-background-image: url('../images/main-background.jpg');
+#main, #game{
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-pref-width: 612px;
     -fx-pref-height: 408px;
+}
+#main {
+    -fx-background-image: url('../images/main-background.jpg');
+}
+
+#game {
+    -fx-background-image: url('../images/game-background.jpg');
 }
 
 #main .button {

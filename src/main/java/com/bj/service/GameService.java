@@ -1,12 +1,15 @@
 package com.bj.service;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
@@ -18,7 +21,7 @@ public class GameService {
         return drawRandomCard(deck)[0][0];
     }
 
-    public Scene getImageScene(int[] card) throws FileNotFoundException {
+    public ImageView getImageScene(int[] card) throws FileNotFoundException {
         try {
             InputStream stream = new FileInputStream("src/main/resources/images/cards/" + card[0] + "-" + card[1] + ".png");
             Image image = new Image(stream);
@@ -30,10 +33,8 @@ public class GameService {
             imageView.setY(10);
             imageView.setFitWidth(100);
             imageView.setPreserveRatio(true);
-            //Setting the Scene object
-            Group root = new Group(imageView);
-            return new Scene(root, 595, 370);
-        } catch (FileNotFoundException e) {
+            return imageView;
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -45,21 +46,24 @@ public class GameService {
         int numberOfCards = Math.min(52 - ((13 * (card[1] - 1)) + card[0]), 52);
         int[][] deck = new int[numberOfCards][2];
         for (int i = type; i <= 4; i++) {
-            if (number == 13 || number == 0) {
-                number = 1;
-                continue;
-            }
-            for (int j = number; j <= 13; j++) {
+            for (int j = number+1 == 14 ? 1 : number+1; j <= 13; j++, cardCount++) {
                 deck[cardCount][0] = j;
                 deck[cardCount][1] = i;
-                cardCount++;
+
             }
         }
         return deck;
     }
 
     private void createDeck() {
-        this.deck = nextCards(new int[]{0, 0});
+        int[] card = new int[]{1, 1};
+        int[][] nextCards = nextCards(card);
+        int[][] deck = new int[nextCards.length + 1][2];
+        deck[0] = card;
+        System.out.println(nextCards.length);
+        System.arraycopy(nextCards, 0, deck, 1, 51);
+        this.deck = deck;
+        System.out.println(Arrays.deepToString(this.deck));
     }
 
     private int[][][] drawNthCard(int[][] deck, int n) {
