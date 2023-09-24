@@ -2,13 +2,14 @@ package com.bj.controller;
 
 import com.bj.MainApplication;
 import com.bj.service.GameService;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -19,7 +20,19 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load(), 840, 440);
 
         GameService gameService = new GameService();
-        int[][] drawnCards = gameService.startGame();
+        gameService.startGame();
+        MainApplication.stage.setScene(scene);
+        Label shufflingLabel = new Label("Shuffling...");
+//        shufflingLabel
+        BorderPane root = fxmlLoader.getRoot();
+        root.setCenter(new Label("Hello World!"));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+                root.setCenter(null);
+        }));
+        timeline.play();
+        gameService.shuffleDeck(gameService.deck);
+
+
 //        BorderPane root = fxmlLoader.getRoot();
 //        StackPane stackPane = (StackPane) root.getTop();
 //        int i = 60;
@@ -29,6 +42,5 @@ public class MainController {
 //            stackPane.getChildren().add(imageView);
 //            i += 30;
 //        }
-//        MainApplication.stage.setScene(scene);
     }
 }

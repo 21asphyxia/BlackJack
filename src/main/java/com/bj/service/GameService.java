@@ -11,11 +11,11 @@ import java.util.Arrays;
 
 public class GameService {
     public int[][] deck;
+    public int[][] playerCards;
+    public int[][] dealerCards;
 
-    public int[][] startGame() {
+    public void startGame() {
         createDeck();
-        shuffleDeck(deck);
-        return new int[][]{drawRandomCard(deck)[0][0], drawRandomCard(deck)[0][0]};
     }
 
     public ImageView getImageScene(int[] card) throws FileNotFoundException {
@@ -93,7 +93,6 @@ public class GameService {
             int[][][] drawnCard = drawRandomCard(deck);
             shuffledDeck[i] = drawnCard[0][0];
             deck = drawnCard[1];
-            System.out.println((Arrays.toString(drawnCard[0][0])));
         }
         System.out.println(Arrays.deepToString(shuffledDeck));
     }
