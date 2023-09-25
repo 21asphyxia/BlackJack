@@ -31,3 +31,8 @@
     -fx-font-family: 'Golden Beach Personal Use';
     -fx-font-size: 40;
 }
+
+.shuffling-label{
+    -fx-font-size: 30;
+    -fx-text-fill: white;
+}
