@@ -14,8 +14,9 @@ public class MainApplication extends Application {
         MainApplication.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/fxml/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 840, 440);
-        stage.setTitle("Hello!");
+        stage.setTitle("Aouad Casino");
         stage.setScene(scene);
+//        stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
         stage.show();
     }
 

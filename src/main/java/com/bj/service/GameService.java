@@ -1,43 +1,8 @@
 package com.bj.service;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-
 public class GameService {
-    public int[][] deck;
-    public int[][] playerCards;
-    public int[][] dealerCards;
 
-    public void startGame() {
-        createDeck();
-    }
-
-    public ImageView getImageScene(int[] card) throws FileNotFoundException {
-        try {
-            InputStream stream = new FileInputStream("src/main/resources/images/cards/" + card[0] + "-" + card[1] + ".png");
-            Image image = new Image(stream);
-            ImageView imageView = new ImageView();
-            //Setting image to the image view
-            imageView.setImage(image);
-            //Setting the image view parameters
-            imageView.setX(10);
-            imageView.setY(10);
-            imageView.setEffect((new javafx.scene.effect.DropShadow()));
-            imageView.setFitWidth(100);
-            imageView.setPreserveRatio(true);
-            return imageView;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public int[][] nextCards(int[] card) {
+    private int[][] nextCards(int[] card) {
         int type = card[1];
         int number = card[0];
         int cardCount = 0;
@@ -53,18 +18,16 @@ public class GameService {
             }
             number = 0;
         }
-//        System.out.println(Arrays.deepToString(deck));
         return deck;
     }
 
-    private void createDeck() {
+    public int[][] createDeck() {
         int[] card = new int[]{1, 1};
         int[][] nextCards = nextCards(card);
         int[][] deck = new int[nextCards.length + 1][2];
         deck[0] = card;
         System.arraycopy(nextCards, 0, deck, 1, 51);
-        this.deck = deck;
-//        System.out.println(Arrays.deepToString(this.deck));
+        return deck;
     }
 
     private int[][][] drawNthCard(int[][] deck, int n) {
@@ -86,7 +49,7 @@ public class GameService {
         return drawNthCard(deck, randomCard);
     }
 
-    public void shuffleDeck(int[][] deck) {
+    public int[][] shuffleDeck(int[][] deck) {
         int[][] shuffledDeck = new int[deck.length][2];
         int deckLength = deck.length;
         for (int i = 0; i < deckLength; i++) {
@@ -94,7 +57,18 @@ public class GameService {
             shuffledDeck[i] = drawnCard[0][0];
             deck = drawnCard[1];
         }
-        System.out.println(Arrays.deepToString(shuffledDeck));
+        return shuffledDeck;
+    }
+
+    public int[][][] drawNCards(int[][] deck, int n) {
+        int[][] drawnCards = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            int[][][] cardAndDeck = drawNthCard(deck, 0);
+            int[] drawnCard = cardAndDeck[0][0];
+            drawnCards[i] = drawnCard;
+            deck = cardAndDeck[1];
+        }
+        return new int[][][]{drawnCards, deck};
     }
 
 }
