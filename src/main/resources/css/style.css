@@ -2,9 +2,9 @@
     src: url('../fonts/GoldenbeachpersonaluseBdit-jEgDM.otf');
 }
 
-*{
-    -fx-hover-green : derive(lightgreen, 40%);
-    -fx-hover-orange : derive(orange, 40%);
+* {
+    -fx-hover-green: derive(lightgreen, 40%);
+    -fx-hover-orange: derive(orange, 40%);
 }
 
 #main, #game {
@@ -42,7 +42,7 @@
     -fx-text-fill: white;
 }
 
-.hit-button , .stand-button {
+.hit-button, .stand-button {
     -fx-border-radius: 24px;
     -fx-background-color: transparent;
     -fx-font-size: 20;
@@ -53,19 +53,19 @@
     -fx-cursor: hand;
 }
 
-.hit-button{
+.hit-button {
     -fx-border-color: lightgreen;
     -fx-text-fill: lightgreen;
     -fx-effect: dropshadow(gaussian, lightgreen, 10, 0, 0, 0);
 }
 
-.stand-button{
+.stand-button {
     -fx-border-color: orange;
     -fx-text-fill: orange;
     -fx-effect: dropshadow(gaussian, orange, 10, 0, 0, 0);
 }
 
-.hit-button:hover{
+.hit-button:hover {
     -fx-border-color: -fx-hover-green;
     -fx-text-fill: -fx-hover-green;
     -fx-effect: dropshadow(gaussian, -fx-hover-green, 10, 0, 0, 0);

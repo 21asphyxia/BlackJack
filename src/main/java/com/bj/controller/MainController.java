@@ -52,8 +52,6 @@ public class MainController {
         fxmlLoader.setController(this);
         // Setting the game scene
         stage.getScene().setRoot(fxmlLoader.load());
-        stage.setFullScreen(true);
-
         startGame();
     }
 
@@ -122,7 +120,7 @@ public class MainController {
 
             System.out.println(Arrays.deepToString(playerCards));
             ImageView imageView = getImageScene(drawnCard);
-            imageView.setTranslateX((bottomSide.getChildren().size()-1) * 30 - 30);
+            imageView.setTranslateX((bottomSide.getChildren().size() - 1) * 30 - 30);
             bottomSide.getChildren().add(imageView);
             if (gameService.didBust(playerCards)) {
                 setLoserNotification();
@@ -194,7 +192,6 @@ public class MainController {
         playAgainButton.getStyleClass().add("hit-button");
         playAgainButton.setOnAction(event -> {
             startGame();
-            return;
         });
         ButtonBar buttonBar = new ButtonBar();
         buttonBar.getButtons().addAll(playAgainButton);
@@ -232,9 +229,8 @@ public class MainController {
         SequentialTransition sequence = new SequentialTransition(toFrontTimeline, toBackTimeline);
         sequence.setCycleCount(Timeline.INDEFINITE);
 
-//        rotateTransition.play();
         translateTransitionX.play();
-//        translateTransitionY.play();
+
         sequence.play();
 
         return new Timeline(new KeyFrame(Duration.seconds(3), event -> {
@@ -261,7 +257,6 @@ public class MainController {
         playAgainButton.getStyleClass().add("hit-button");
         playAgainButton.setOnAction(event -> {
             startGame();
-            return;
         });
         ButtonBar buttonBar = new ButtonBar();
         buttonBar.getButtons().addAll(playAgainButton);
@@ -277,7 +272,6 @@ public class MainController {
         playAgainButton.getStyleClass().add("hit-button");
         playAgainButton.setOnAction(event -> {
             startGame();
-            return;
         });
         ButtonBar buttonBar = new ButtonBar();
         buttonBar.getButtons().addAll(playAgainButton);
@@ -296,9 +290,6 @@ public class MainController {
             ImageView imageView = new ImageView();
             //Setting image to the image view
             imageView.setImage(image);
-            //Setting the image view parameters
-//            imageView.setX(100);
-//            imageView.setY(100);
             imageView.setEffect((new javafx.scene.effect.DropShadow()));
             imageView.fitHeightProperty().bind(stage.heightProperty().divide(3).subtract(20));
             imageView.setPreserveRatio(true);

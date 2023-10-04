@@ -5,8 +5,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane id="main" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.6"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bj.controller.MainController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="main" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/17.0.6" fx:controller="com.bj.controller.MainController">
     <top>
         <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onStartButtonClick" prefHeight="78.0"
                 prefWidth="298.0" text="Start Game" textAlignment="CENTER" BorderPane.alignment="CENTER">

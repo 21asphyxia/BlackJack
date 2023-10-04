@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.DropShadow?>
-<BorderPane id="game" fx:id="root" prefHeight="461.0" prefWidth="600.0" stylesheets="@../css/style.css"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="game" fx:id="root" prefHeight="461.0" prefWidth="600.0"
+            stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea">
     <top>
         <StackPane fx:id="topSide" BorderPane.alignment="CENTER">
             <ImageView preserveRatio="true" StackPane.alignment="TOP_RIGHT" fx:id="bottomBackCard">
@@ -29,19 +26,6 @@
                     <Insets right="10.0"/>
                 </StackPane.margin>
             </ImageView>
-
-            <!--            <ImageView fitWidth="100" preserveRatio="true">-->
-            <!--                <effect>-->
-            <!--                    <DropShadow />-->
-            <!--                </effect>-->
-            <!--                <Image url="@../images/cards/1-2.png" />-->
-            <!--            </ImageView>-->
-            <!--            <ImageView fitWidth="100" preserveRatio="true" translateX="30">-->
-            <!--                <effect>-->
-            <!--                    <DropShadow />-->
-            <!--                </effect>-->
-            <!--                <Image url="@../images/cards/1-2.png" />-->
-            <!--            </ImageView>-->
             <BorderPane.margin>
                 <Insets top="10.0"/>
             </BorderPane.margin>
@@ -70,13 +54,6 @@
     <center>
         <VBox fx:id="centerBox" alignment="CENTER">
             <HBox fx:id="centerSide" alignment="CENTER">
-                <!--                <ButtonBar>-->
-                <!--                    <buttons>-->
-                <!--                        <Button styleClass="stand-button" text="Stand">-->
-                <!--                        </Button>-->
-                <!--                        <Button styleClass="hit-button" text="Hit" />-->
-                <!--                    </buttons>-->
-                <!--                </ButtonBar>-->
             </HBox>
         </VBox>
     </center>
