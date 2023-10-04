@@ -2,77 +2,82 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="game" fx:id="root" prefHeight="461.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.effect.DropShadow?>
+<BorderPane id="game" fx:id="root" prefHeight="461.0" prefWidth="600.0" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <StackPane fx:id="topSide" BorderPane.alignment="CENTER">
-            <ImageView fitWidth="100" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                <Image url="@../images/cards/card_back.png" />
+            <ImageView preserveRatio="true" StackPane.alignment="TOP_RIGHT" fx:id="bottomBackCard">
+                <Image url="@../images/cards/card_back.png"/>
                 <effect>
-                    <DropShadow />
+                    <DropShadow/>
                 </effect>
                 <StackPane.margin>
-                    <Insets right="10.0" />
+                    <Insets right="10.0"/>
                 </StackPane.margin>
             </ImageView>
-            <ImageView fitWidth="100" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                <Image url="@../images/cards/card_back.png" />
+            <ImageView preserveRatio="true" StackPane.alignment="TOP_RIGHT" fx:id="topBackCard">
+                <Image url="@../images/cards/card_back.png"/>
                 <effect>
-                    <DropShadow />
+                    <DropShadow/>
                 </effect>
                 <StackPane.margin>
-                    <Insets right="10.0" />
+                    <Insets right="10.0"/>
                 </StackPane.margin>
             </ImageView>
 
-<!--            <ImageView fitWidth="100" preserveRatio="true">-->
-<!--                <effect>-->
-<!--                    <DropShadow />-->
-<!--                </effect>-->
-<!--                <Image url="@../images/cards/1-2.png" />-->
-<!--            </ImageView>-->
-<!--            <ImageView fitWidth="100" preserveRatio="true" translateX="30">-->
-<!--                <effect>-->
-<!--                    <DropShadow />-->
-<!--                </effect>-->
-<!--                <Image url="@../images/cards/1-2.png" />-->
-<!--            </ImageView>-->
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin>
+            <!--            <ImageView fitWidth="100" preserveRatio="true">-->
+            <!--                <effect>-->
+            <!--                    <DropShadow />-->
+            <!--                </effect>-->
+            <!--                <Image url="@../images/cards/1-2.png" />-->
+            <!--            </ImageView>-->
+            <!--            <ImageView fitWidth="100" preserveRatio="true" translateX="30">-->
+            <!--                <effect>-->
+            <!--                    <DropShadow />-->
+            <!--                </effect>-->
+            <!--                <Image url="@../images/cards/1-2.png" />-->
+            <!--            </ImageView>-->
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
         </StackPane>
     </top>
     <bottom>
         <StackPane fx:id="bottomSide" BorderPane.alignment="CENTER">
-<!--            <ImageView fitWidth="100" preserveRatio="true">-->
-<!--                <effect>-->
-<!--                    <DropShadow />-->
-<!--                </effect>-->
-<!--                <Image url="@../images/cards/1-2.png" />-->
+            <ImageView fitWidth="100" preserveRatio="true">
+                <effect>
+                    <DropShadow/>
+                </effect>
+                <Image url="@../images/cards/1-2.png"/>
 
-<!--            </ImageView>-->
-<!--            <ImageView fitWidth="100" preserveRatio="true" translateX="30">-->
-<!--                <effect>-->
-<!--                    <DropShadow />-->
-<!--                </effect>-->
-<!--                <Image url="@../images/cards/1-2.png" />-->
-<!--            </ImageView>-->
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
-         </BorderPane.margin>
+            </ImageView>
+            <ImageView fitWidth="100" preserveRatio="true" translateX="30">
+                <effect>
+                    <DropShadow/>
+                </effect>
+                <Image url="@../images/cards/1-2.png"/>
+            </ImageView>
+            <BorderPane.margin>
+                <Insets bottom="10.0"/>
+            </BorderPane.margin>
         </StackPane>
     </bottom>
-   <center>
-       <HBox alignment="CENTER" fx:id="centerSide">
-           <ButtonBar>
-              <buttons>
-                  <Button text="Button"/>
-                  <Button text="Button"/>
-              </buttons>
-           </ButtonBar>
-       </HBox>
-   </center>
+    <center>
+        <VBox fx:id="centerBox" alignment="CENTER">
+            <HBox fx:id="centerSide" alignment="CENTER">
+                <!--                <ButtonBar>-->
+                <!--                    <buttons>-->
+                <!--                        <Button styleClass="stand-button" text="Stand">-->
+                <!--                        </Button>-->
+                <!--                        <Button styleClass="hit-button" text="Hit" />-->
+                <!--                    </buttons>-->
+                <!--                </ButtonBar>-->
+            </HBox>
+        </VBox>
+    </center>
 </BorderPane>

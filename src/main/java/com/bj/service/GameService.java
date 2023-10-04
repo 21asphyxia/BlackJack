@@ -71,4 +71,33 @@ public class GameService {
         return new int[][][]{drawnCards, deck};
     }
 
+    public boolean didBust(int[][] cards) {
+        return getSum(cards) > 21;
+    }
+
+    public int getSum(int[][] cards) {
+        int sum = 0;
+        boolean hasAce = false;
+        for (int[] card : cards) {
+            int number = card[0];
+            if (number > 10) {
+                number = 10;
+            }
+            if (number == 1) {
+                hasAce = true;
+            }
+            sum += number;
+        }
+        if (hasAce && sum + 10 <= 21) {
+            sum += 10;
+        }
+        return sum;
+    }
+
+    public int[][] addCard(int[][] cards, int[] card) {
+        int[][] newCards = new int[cards.length + 1][2];
+        System.arraycopy(cards, 0, newCards, 0, cards.length);
+        newCards[cards.length] = card;
+        return newCards;
+    }
 }

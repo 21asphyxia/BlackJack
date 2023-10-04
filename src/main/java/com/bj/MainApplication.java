@@ -13,10 +13,10 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         MainApplication.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/fxml/main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 840, 440);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Aouad Casino");
         stage.setScene(scene);
-//        stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
+        stage.setFullScreen(true);
         stage.show();
     }
 
